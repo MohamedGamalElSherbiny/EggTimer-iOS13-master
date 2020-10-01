@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -116,6 +117,23 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O9J-aG-XUf" userLabel="ProgressBar">
                                         <rect key="frame" x="87" y="545.5" width="240" height="272.5"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UUz-bN-Zng">
+                                                <rect key="frame" x="0.0" y="133.5" width="240" height="6"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="RPs-a1-h2P"/>
+                                                    <constraint firstAttribute="width" constant="240" id="vf7-kW-n8p"/>
+                                                </constraints>
+                                                <color key="progressTintColor" systemColor="systemYellowColor"/>
+                                                <color key="trackTintColor" systemColor="systemGrayColor"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="UUz-bN-Zng" firstAttribute="leading" secondItem="O9J-aG-XUf" secondAttribute="leading" id="4Rv-KK-IgN"/>
+                                            <constraint firstItem="UUz-bN-Zng" firstAttribute="centerX" secondItem="O9J-aG-XUf" secondAttribute="centerX" id="8n9-JP-yjM"/>
+                                            <constraint firstAttribute="trailing" secondItem="UUz-bN-Zng" secondAttribute="trailing" id="GFp-fI-LYO"/>
+                                            <constraint firstItem="UUz-bN-Zng" firstAttribute="centerY" secondItem="O9J-aG-XUf" secondAttribute="centerY" id="lhE-y0-3xE"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -135,6 +153,9 @@
                             <constraint firstItem="XzP-Cn-TUn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lXJ-Rw-lOX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="R2l-cw-WvL" id="oEy-RA-GKS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,5 +166,11 @@
         <image name="hard_egg" width="287.5" height="366"/>
         <image name="medium_egg" width="288" height="363"/>
         <image name="soft_egg" width="287" height="365"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
