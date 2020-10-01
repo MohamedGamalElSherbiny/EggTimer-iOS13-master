@@ -95,7 +95,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="273"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMW-Wt-MUu" userLabel="Hard Egg Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="134.5" height="273"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="273"/>
                                                         <state key="normal" title="Hard"/>
                                                         <connections>
                                                             <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9IR-gC-PyL"/>
@@ -106,7 +106,7 @@
                                                     <constraint firstItem="R8r-gt-VPa" firstAttribute="top" secondItem="UH3-at-Sc0" secondAttribute="top" id="6pp-DC-3wf"/>
                                                     <constraint firstItem="R8r-gt-VPa" firstAttribute="leading" secondItem="UH3-at-Sc0" secondAttribute="leading" id="7jT-PX-5ar"/>
                                                     <constraint firstItem="XMW-Wt-MUu" firstAttribute="leading" secondItem="UH3-at-Sc0" secondAttribute="leading" id="FOL-46-HR0"/>
-                                                    <constraint firstAttribute="trailing" secondItem="XMW-Wt-MUu" secondAttribute="trailing" id="OZc-XK-gbH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XMW-Wt-MUu" secondAttribute="trailing" constant="10" id="OZc-XK-gbH"/>
                                                     <constraint firstAttribute="bottom" secondItem="R8r-gt-VPa" secondAttribute="bottom" id="VWy-cz-Qu2"/>
                                                     <constraint firstItem="XMW-Wt-MUu" firstAttribute="top" secondItem="UH3-at-Sc0" secondAttribute="top" id="dgj-GY-0xo"/>
                                                     <constraint firstAttribute="trailing" secondItem="R8r-gt-VPa" secondAttribute="trailing" constant="10" id="lNF-bo-XxG"/>
@@ -118,7 +118,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O9J-aG-XUf" userLabel="ProgressBar">
                                         <rect key="frame" x="87" y="545.5" width="240" height="272.5"/>
                                         <subviews>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UUz-bN-Zng">
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="UUz-bN-Zng">
                                                 <rect key="frame" x="0.0" y="133.5" width="240" height="6"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="RPs-a1-h2P"/>
@@ -154,6 +154,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="progressBar" destination="UUz-bN-Zng" id="9Du-aa-1Q5"/>
                         <outlet property="titleLabel" destination="R2l-cw-WvL" id="oEy-RA-GKS"/>
                     </connections>
                 </viewController>
