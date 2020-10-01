@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         timer.invalidate()
         if let hardnessSelected = sender.currentTitle {  // Get user input button title
             if let eggTimer = eggTimes[hardnessSelected]{  // Get the time from the dictionary
-                let totalSeconds = eggTimer   // Convert minutes to seconds
+                let totalSeconds = eggTimer * 60  // Convert minutes to seconds
                 var secondsRemaining = totalSeconds
                 self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in  // Create a timer with seconds and repeat every 1 second
                     if secondsRemaining > 0 {
