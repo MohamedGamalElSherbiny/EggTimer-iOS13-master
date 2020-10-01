@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -7,6 +8,7 @@ class ViewController: UIViewController {
     
     let eggTimes = ["Soft": 5, "Medium": 7, "Hard": 12]  // Dictionary of the timers for boiling eggs
     var timer = Timer()
+    var player : AVAudioPlayer?
     
     @IBAction func hardnessSelected(_ sender: UIButton) {  // Define the UIButtons in the MainStoryBoard
         titleLabel.text = "How do you like your eggs?"
@@ -14,7 +16,7 @@ class ViewController: UIViewController {
         timer.invalidate()
         if let hardnessSelected = sender.currentTitle {  // Get user input button title
             if let eggTimer = eggTimes[hardnessSelected]{  // Get the time from the dictionary
-                let totalSeconds = eggTimer * 60  // Convert minutes to seconds
+                let totalSeconds = eggTimer   // Convert minutes to seconds
                 var secondsRemaining = totalSeconds
                 self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in  // Create a timer with seconds and repeat every 1 second
                     if secondsRemaining > 0 {
@@ -23,10 +25,26 @@ class ViewController: UIViewController {
                     } else {
                         self.titleLabel.text = "Done!!"
                         self.progressBar.progress = 1
+                        self.playSound()  // Run the sound function when the timer is done
                         Timer.invalidate()
                     }
                 }
             }
+        }
+    }
+    
+    // MARK: Add the sound function
+    
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)  // To make it run sound in silent mode
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            guard let player = player else { return }
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }
